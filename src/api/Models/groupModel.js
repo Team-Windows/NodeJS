@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let postSchema = new Schema({
+let groupSchema = new Schema({
     name: {
         type: String,
         required: "The name is required."
     } ,
-    content:{
-        type: String,
-        required: true
+    date:{
+        type: Date,
+        default: Date.now
     }
 });
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Group', groupSchema);
