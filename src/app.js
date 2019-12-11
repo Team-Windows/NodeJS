@@ -8,11 +8,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const hostname = '0.0.0.0';
-const port = 200;
+const port = 2000;
 
-//const postRoute = require('./api/Routes/postRoute');
+const groupRoute = require('./api/Routes/groupRoute');
+groupRoute(app);
 //const commentRoute = require('./api/Routes/commentRoute');
-//postRoute(app);
 //commentRoute(app);
 
 mongoose.Promise = global.Promise;
