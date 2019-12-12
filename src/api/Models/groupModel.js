@@ -9,6 +9,10 @@ let groupSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    archive:{
+      type: Boolean,
+      default: false
     }
 });
 
