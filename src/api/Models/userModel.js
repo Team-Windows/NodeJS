@@ -18,6 +18,7 @@ let userSchema = new Schema({
     },
     wish_list: {
         type: String,
+        required: "What do you want? The wish is required."
     }
 });
 
