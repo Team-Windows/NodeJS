@@ -15,6 +15,9 @@ let userSchema = new Schema({
     },
     affected_group: {
         type: String,
+    },
+    wish_list: {
+        type: String,
     }
 });
 
