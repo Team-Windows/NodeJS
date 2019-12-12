@@ -5,8 +5,8 @@ let groupSchema = new Schema({
     name: {
         type: String,
         required: "The name is required."
-    } ,
-    date:{
+    },
+    date: {
         type: Date,
         default: Date.now
     }

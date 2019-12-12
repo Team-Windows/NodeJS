@@ -22,6 +22,6 @@ const mongooseParams = {
     useCreateIndex : true
 };
 
-mongoose.connect('mongodb://localhost:27017/apinodeipssi', mongooseParams);
+mongoose.connect('mongodb://localhost:27017/windows', mongooseParams);
 
 app.listen(port, hostname);
