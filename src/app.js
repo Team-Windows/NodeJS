@@ -12,8 +12,8 @@ const port = 2000;
 
 const groupRoute = require('./api/Routes/groupRoute');
 groupRoute(app);
-//const commentRoute = require('./api/Routes/commentRoute');
-//commentRoute(app);
+const userRoute = require('./api/Routes/userRoute');
+userRoute(app);
 
 mongoose.Promise = global.Promise;
 const mongooseParams = {
