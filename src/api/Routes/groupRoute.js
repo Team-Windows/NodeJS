@@ -5,9 +5,9 @@ module.exports = (app) => {
         .get(groupController.list_all_groups)
         .post(groupController.create_a_group);
 
-    //app.route('/post/:post_id')
-    //    .get(postController.get_a_post)
-    //    .put(postController.update_a_post)
-    //    .delete(postController.delete_a_post);
+    app.route('/group/:group_id')
+        .get(groupController.get_a_group)
+        .put(groupController.update_a_group)
+        .delete(groupController.delete_a_group);
 
 };
