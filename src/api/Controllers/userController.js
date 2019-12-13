@@ -17,7 +17,7 @@ exports.list_all_users = (req, res) => {
 };
 //Création des utilisateurs
 exports.get_a_user = (req, res) => {
-    User.find(req.params.user_id, (error, user) => {
+    User.find({_id:req.params.user_id}, (error, user) => {
         if(error){
             res.status(500);
             console.log(error);
