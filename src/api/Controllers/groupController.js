@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const groupModel = require('../Models/groupModel');
+const userModel = require('../Models/userModel');
 const Group = mongoose.model('Group');
+const User = mongoose.model('User');
 
 // Obtention la liste des groupes
 exports.list_all_groups = (req, res) => {
@@ -26,7 +28,7 @@ exports.create_a_group = (req, res) => {
             res.json(error);
         } else {
             res.status(200);
-            res.json(group);
+            res.json({group, message: "Le Groupe a bien été crée !"});
         }
     })
 };
@@ -74,8 +76,17 @@ exports.delete_a_group = (req, res) => {
             res.status(500);
             res.json({message: "Erreur Serveur"});
         }else{
-            res.status(200);
-            res.json("Le Groupe : " + group_id + "a bien été supprimé !");
+            User.deleteMany({affected_group:group_id}, function (error) {
+                if (error){
+                    res.status(500);
+                    res.json({message: "Erreur Serveur"});
+                }else {
+                    res.status(200);
+                    return res.json({message : "Le Groupe : " + group_id + "a bien été supprimé !"});
+                }
+            })
+
         }
     });
+
 };
