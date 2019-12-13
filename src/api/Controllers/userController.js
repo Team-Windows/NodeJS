@@ -32,8 +32,6 @@ exports.get_a_user = (req, res) => {
 
 //Obtention d'un utilisateur par son ID
 exports.create_a_user = (req, res) => {
-    req.body.affected_group = req.params.affected_group;
-    req.body.affected_user = req.params.affected_user;
     let new_user = new User(req.body);
     new_user.save((error, user) => {
         if (error) {
@@ -42,7 +40,7 @@ exports.create_a_user = (req, res) => {
             res.json(error);
         }else {
             res.status(200);
-            res.json(user);
+            res.json({user, message:"L'utilisateur a bien été crée !"});
         }
     })
 };
@@ -72,7 +70,7 @@ exports.delete_a_user = (req, res) => {
         }
         else {
             res.status(200);
-            res.json({message: "Le Groupe : "+ req.params.user_id + "a bien été supprimé !"});
+            res.json({message: "L'utilisateur : "+ req.params.user_id + "a bien été supprimé !"});
         }
     })
 };
